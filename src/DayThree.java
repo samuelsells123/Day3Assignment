@@ -139,10 +139,14 @@ public class DayThree {
 		System.out.println("Linked List: " + list + "\n\n" 
 							+ "Printing list in reverse order" + "\n");
 		
-		ListIterator<Integer> itr = list.listIterator(list.size());
+		//ListIterator<Integer> itr = list.listIterator(list.size());
 		
-		while(itr.hasPrevious()) {
+		/*while(itr.hasPrevious()) {
 			System.out.print(itr.previous() + ", ");
+		}*/
+		
+		for(int i = list.size()-1; i >= 0; i--) {
+			System.out.print(list.get(i) + ", ");
 		}
 		
 		System.out.println("\n");
@@ -182,19 +186,83 @@ public class DayThree {
 	public static void problem6() {
 		bufferPrint("Join Two ArrayLists");
 		
+		ArrayList<Integer> listOne = new ArrayList<>();
+		ArrayList<Integer> listTwo = new ArrayList<>();
 		
+		for(int i = 1; i < 4; i++)
+			listOne.add(i);
+		for(int i = 4; i < 7; i++)
+			listTwo.add(i);
+		
+		System.out.println("First List \t: " + listOne + "\n"
+							+ "Second List \t: " + listTwo + "\n\n"
+							+ "Adding second list to first" + "\n");
+		
+		listOne.addAll(listTwo);
+		
+		System.out.println("First List \t: " + listOne + "\n");
 	}
 	
 	public static void problem7() {
 		bufferPrint("Compare Player Ranking Using Interface");
 		
+		ArrayList<Player> p = new ArrayList<>();
 		
+		p.add(new Player(5, "Alex", 27));
+		p.add(new Player(3, "Ryan", 27));
+		p.add(new Player(14, "Sam", 23));
+		p.add(new Player(14, "Emily", 23));
+		p.add(new Player(14, "Rachel", 18));
+		
+		System.out.println("Name" + "\t" + "Ranking" + "\t" + "Age");
+		
+		for(int i = 0; i < p.size(); i++) {
+			System.out.println(p.get(i).getName() + "\t" 
+								+ p.get(i).getRanking() + "\t"
+								+ p.get(i).getAge());
+		}
+			
+		System.out.println("\n" + "compareTo results:");
+		
+		for(int i = 1; i < p.size(); i++) {
+			System.out.println(p.get(i-1).getName() + " compareTo "
+								+  p.get(i).getName() + "\t: "
+								+ p.get(i-1).compareTo(p.get(i)));
+		}
+		
+		System.out.println();
 	}
 	
 	public static void problem8() {
 		bufferPrint("Compare Player Based On Age and Ranking");
 		
+		PlayerComparator pc = new PlayerComparator();
 		
+		ArrayList<Player> p = new ArrayList<>();
+		
+		p.add(new Player(5, "Alex", 27));
+		p.add(new Player(3, "Ryan", 27));
+		p.add(new Player(14, "Sam", 23));
+		p.add(new Player(14, "Emily", 23));
+		p.add(new Player(14, "Rachel", 18));
+		
+		System.out.println("Name" + "\t" + "Ranking" + "\t" + "Age");
+		
+		for(int i = 0; i < p.size(); i++) {
+			System.out.println(p.get(i).getName() + "\t" 
+								+ p.get(i).getRanking() + "\t"
+								+ p.get(i).getAge());
+		}
+			
+		System.out.println("\n" + "compare results:");
+		
+		for(int i = 1; i < p.size(); i++) {
+			System.out.println("compare " + p.get(i-1).getName()
+								+ ", " +  p.get(i).getName() + "\t: "
+								+ pc.compare(p.get(i-1), p.get(i)));
+		}
+		
+		System.out.println();
 	}
 	
 	public static void problem9() {
