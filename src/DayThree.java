@@ -1,4 +1,8 @@
 import java.util.Scanner;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class DayThree {
 	public static Scanner scan;
@@ -7,7 +11,7 @@ public class DayThree {
 		scan = new Scanner(System.in);
 		int select = 0;
 		
-		printProblems();
+		//printProblems();
 		
 		while(select != 12) {
 			bufferPrint("1-10 \t: Problems" + "\n"
@@ -81,7 +85,7 @@ public class DayThree {
 				+ " Read each line as a String and print the total number of characters.\r\n"
 				+ "\r\n"
 				+ "Lambda:\r\n"
-				+ "10. Write a lambda expression to generate the square of a number.");
+				+ "10. Write a lambda expression to generate the square of a number.\n");
 	}
 	
 	public static void bufferPrint(String message) {
@@ -89,61 +93,118 @@ public class DayThree {
 	}
 	
 	public static void problem1() {
-		bufferPrint("");
+		bufferPrint("Swap Two Elements in an ArrayList");
+		
+		ArrayList<String> arr = new ArrayList<>();
+		
+		arr.add("Swap");
+		arr.add("These");
+		arr.add("Values");
 		
 		
+		System.out.println("Array: " + arr + "\n\n"
+							+ "Swapping first two values");
+		
+		Collections.swap(arr, 0, 1);
+		
+		bufferPrint("Array: " + arr);
 	}
 	
 	public static void problem2() {
-		bufferPrint("");
+		bufferPrint("Clone ArrayList");
 		
+		ArrayList<String> arr = new ArrayList<>();
 		
+		arr.add("Clone");
+		arr.add("This");
+		arr.add("List");
+		
+		System.out.println("First ArrayList: " + arr + "\n");
+		
+		System.out.println("Cloning ArrayList");
+		
+		ArrayList<String> newList = (ArrayList<String>) arr.clone();
+		
+		bufferPrint("New ArrayList: " + newList);
 	}
 	
 	public static void problem3() {
-		bufferPrint("");
+		bufferPrint("Iterate LinkedList in Reverse Order");
 		
+		LinkedList<Integer> list = new LinkedList<>();
 		
+		for(int i = 1; i <= 10; i++)
+			list.add(i);
+		
+		System.out.println("Linked List: " + list + "\n\n" 
+							+ "Printing list in reverse order" + "\n");
+		
+		ListIterator<Integer> itr = list.listIterator(list.size());
+		
+		while(itr.hasPrevious()) {
+			System.out.print(itr.previous() + ", ");
+		}
+		
+		System.out.println("\n");
 	}
 	
 	public static void problem4() {
-		bufferPrint("");
+		bufferPrint("Insert Specified Element at the End of a LinkedList");
 		
+		LinkedList<Integer> list = new LinkedList<>();
 		
+		for(int i = 1; i <= 10; i++)
+			list.add(i);
+		
+		System.out.println("Linked List: " + list + "\n");
+		
+		System.out.println("Using offerLast function to insert 56 into linked list" + "\n");
+		list.offerLast(56);
+		
+		System.out.println("Linked List: " + list + "\n");
 	}
 	
 	public static void problem5() {
-		bufferPrint("");
+		bufferPrint("Search Element in ArrayList");
 		
+		ArrayList<Integer> list = new ArrayList<>();
 		
+		for(int i = 1; i <= 10; i++)
+			list.add(i);
+		
+		System.out.println("Array List: " + list + "\n");
+		
+		for(int i = 2; i < 10; i += 3)
+			System.out.println("index of " + i + ": " + list.indexOf(i));
+		System.out.println();
 	}
 	
 	public static void problem6() {
-		bufferPrint("");
+		bufferPrint("Join Two ArrayLists");
 		
 		
 	}
 	
 	public static void problem7() {
-		bufferPrint("");
+		bufferPrint("Compare Player Ranking Using Interface");
 		
 		
 	}
 	
 	public static void problem8() {
-		bufferPrint("");
+		bufferPrint("Compare Player Based On Age and Ranking");
 		
 		
 	}
 	
 	public static void problem9() {
-		bufferPrint("");
+		bufferPrint("Print Number of Characters in Each Line of a .txt File");
 		
 		
 	}
 	
 	public static void problem10() {
-		bufferPrint("");
+		bufferPrint("Lambda Expression to Generate Square of a Number");
 		
 		
 	}
