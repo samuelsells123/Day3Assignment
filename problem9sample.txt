@@ -1,0 +1,6 @@
+This is a sample .txt file for problem 9 in this assignment.
+The program should use a file input stream in order to print out this text.
+
+
+This an additional line that it should print out.
+I figured I should write just a little bit more.

@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Collections;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -72,16 +73,16 @@ public class DayThree {
 				+ "-----------------------\r\n"
 				+ "Collections:\r\n"
 				+ "1. Write a Java program of swap two elements in an array list which holds the strings.\r\n"
-				+ "2.  Write a program to clone an array list to another array list using clone() of arraylist.\r\n"
+				+ "2. Write a program to clone an array list to another array list using clone() of arraylist.\r\n"
 				+ "3. Iterate a linked list in reverse order.\r\n"
 				+ "4. Write a Java program to insert the specified element at the end of a linked list using offerLast().\r\n"
-				+ "5. Search an element in a array list\r\n"
-				+ "6. Write a program to join two array lists\r\n"
-				+ "Comprable and Compartor:\r\n"
+				+ "5. Search an element in a array list.\r\n"
+				+ "6. Write a program to join two array lists.\r\n\n"
+				+ "Comparable and Comparator:\r\n"
 				+ "7. Write a program to compare the ranking of Player where Player class has ranking, name and age as attributes using comparabel interface.\r\n"
-				+ "8. Write a program to compare the  Player based on age and ranking using Comparator interface.\r\n"
+				+ "8. Write a program to compare the Player based on age and ranking using Comparator interface.\r\n\n"
 				+ "FileIO:\r\n"
-				+ "9. Wrie a program to Open a text file so that you can read the file one line at a time.\r\n"
+				+ "9. Write a program to Open a text file so that you can read the file one line at a time.\r\n"
 				+ " Read each line as a String and print the total number of characters.\r\n"
 				+ "\r\n"
 				+ "Lambda:\r\n"
@@ -268,12 +269,33 @@ public class DayThree {
 	public static void problem9() {
 		bufferPrint("Print Number of Characters in Each Line of a .txt File");
 		
-		
+		try {
+			FileInputStream fileIn = new FileInputStream("problem9sample.txt");
+			
+			int c;
+			
+			while((c = fileIn.read()) != -1) {
+				System.out.print((char) c);
+			}
+			
+			fileIn.close();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		finally {
+			System.out.println("\n");
+		}
 	}
 	
 	public static void problem10() {
 		bufferPrint("Lambda Expression to Generate Square of a Number");
 		
+		Calculator c = (i) -> (i*i);
 		
+		System.out.println("Testing Lambda:");
+		for(int i = 1; i <= 10; i++) {
+			System.out.println(i + " squared : " + c.Square(i));
+		}
+		System.out.println();
 	}
 }
