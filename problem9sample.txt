@@ -1,5 +1,6 @@
 This is a sample .txt file for problem 9 in this assignment.
-The program should use a file input stream in order to print out this text.
+The program should use a file input stream in order to print out this text
+and count the number of characters in each line.
 
 
 This an additional line that it should print out.

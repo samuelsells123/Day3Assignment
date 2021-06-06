@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.Collections;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -269,8 +271,25 @@ public class DayThree {
 	public static void problem9() {
 		bufferPrint("Print Number of Characters in Each Line of a .txt File");
 		
+		Scanner readFile;
 		try {
-			FileInputStream fileIn = new FileInputStream("problem9sample.txt");
+			readFile = new Scanner(new File("problem9sample.txt"));
+			
+			while(readFile.hasNextLine()) {
+				String fileLine = readFile.nextLine();
+				System.out.println(fileLine);
+				System.out.println("Length: " + fileLine.length() + "\n");
+			}
+				
+			readFile.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		/*try {
+			FileInp fileIn = new FileInputStream("problem9sample.txt");
 			
 			int c;
 			
@@ -283,8 +302,8 @@ public class DayThree {
 			System.out.println(e);
 		}
 		finally {
-			System.out.println("\n");
-		}
+			System.out.println("");
+		}*/
 	}
 	
 	public static void problem10() {
